@@ -1,12 +1,12 @@
+const { Job}  = require("brigadier");
 class Helper {
-  constructor(event, project, Job) {
+  constructor(event, project) {
     this.event = event;
     this.project = project;
-    this.Job = Job;
   }
 
   slackNotify(message) {
-    var slack = new this.Job("slack-notify", "technosophos/slack-notify:latest");
+    var slack = new Job("slack-notify", "technosophos/slack-notify:latest");
   
     slack.env = {
       SLACK_WEBHOOK: this.project.secrets.SLACK_WEBHOOK,

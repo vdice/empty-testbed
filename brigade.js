@@ -1,9 +1,9 @@
-const { events, Job}  = require("brigadier");
+const { events }  = require("brigadier");
 const { Helper } = require("/vcs/helpers");
 
 function echoAndNotify(e, project) {
   try {
-    var helper = new Helper(e, project, Job);
+    var helper = new Helper(e, project);
     helper.slackNotify(`===> ${e.type} event received!`);
   } catch (e) {
     console.log(e);
